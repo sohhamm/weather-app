@@ -1,4 +1,4 @@
-import {ClientOptions} from '../types/types'
+import {ClientOptions, Coords} from '../types/types'
 
 export const API = 'https://www.metaweather.com/api'
 
@@ -16,4 +16,17 @@ export const client = async (
       body: JSON.stringify(payload ?? {}),
     })
   ).json()
+}
+
+export const getLocation: () => Coords = () => {
+  let coords: Coords = {latitude: null, longitude: null}
+
+  navigator.geolocation.getCurrentPosition(
+    ({coords: {latitude, longitude}}) => {
+      coords.latitude = latitude
+      coords.longitude = longitude
+    },
+    () => null,
+  )
+  return coords
 }
