@@ -1,7 +1,7 @@
 import {API} from '../constants'
-import {ClientOptions, Coords} from '../types/types'
+import {Client, Coords} from '../types/types'
 
-export const client: TClient = async (
+export const client: Client = async (
   endpoint,
   {method = 'GET', payload, headers = {}} = {},
 ) => {
@@ -30,4 +30,14 @@ export const getGeoLocation: () => Coords = () => {
   return coords
 }
 
-type TClient = (endpoint: string, options?: ClientOptions) => Promise<any[]>
+export const weatherMap = {
+  sl: {name: 'Sleet', src: ''},
+  sn: {name: 'Snow', src: ''},
+  h: {name: 'Hail', src: ''},
+  t: {name: 'ThunderStorm', src: ''},
+  hr: {name: 'Heavy Rain', src: ''},
+  lr: {name: 'Light Rain', src: ''},
+  s: {name: 'Shower', src: ''},
+  hc: {name: 'Heavy Cloud', src: ''},
+  lc: {name: 'Light Cloud', src: ''},
+}
