@@ -1,16 +1,15 @@
+import {API} from '../constants'
 import {ClientOptions, Coords} from '../types/types'
 
-export const API = 'https://www.metaweather.com/api'
-
-export const client = async (
-  endpoint: string,
-  {method = 'GET', payload, headers = {}}: ClientOptions,
+export const client: TClient = async (
+  endpoint,
+  {method = 'GET', payload, headers = {}} = {},
 ) => {
   return await (
     await fetch(API + endpoint, {
       method: method,
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': payload ? 'application/json' : '',
         ...headers,
       },
       body: JSON.stringify(payload ?? {}),
@@ -18,7 +17,7 @@ export const client = async (
   ).json()
 }
 
-export const getLocation: () => Coords = () => {
+export const getGeoLocation: () => Coords = () => {
   let coords: Coords = {latitude: null, longitude: null}
 
   navigator.geolocation.getCurrentPosition(
@@ -30,3 +29,5 @@ export const getLocation: () => Coords = () => {
   )
   return coords
 }
+
+type TClient = (endpoint: string, options?: ClientOptions) => Promise<any[]>

@@ -1,6 +1,6 @@
 export interface ClientOptions {
   method?: string
-  payload?: object | Array<any>
+  payload?: object | Array<any> | undefined
   headers?: object
 }
 
