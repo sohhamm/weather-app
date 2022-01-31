@@ -13,6 +13,8 @@ export const FutureStatsBox = styled('div', {
 
 export const FutureStats = styled('div', {
   backgroundColor: '$primary',
+  width: '120px',
+  height: '177px',
 })
 
 export const PresentStatsBox = styled('div', {

@@ -1,4 +1,4 @@
-import bgPath from '../../assets/cloud-bg.png'
+import bgPath from '/assets/cloud-bg.png'
 import {styled} from '../../../stitches.config'
 import {MdMyLocation} from 'react-icons/md'
 
@@ -9,10 +9,20 @@ export const LeftBox = styled('div', {
   backgroundColor: '$primary',
   display: 'flex',
   flexDirection: 'column',
-  backgroundImage: `url(${bgPath})`,
-  backgroundPosition: '0% 20%',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'contain',
+  // position: 'relative',
+  '&::after': {
+    content: '',
+    display: 'block',
+    backgroundImage: `url(${bgPath})`,
+    backgroundPosition: '50% 20%',
+    backgroundRepeat: 'no-repeat',
+    // backgroundSize: 'contain',
+    width: '100%',
+    height: '100%',
+    zIndex: 1,
+    filter: 'opacity(12%)',
+    // margin: '0 auto',
+  },
 })
 
 export const Flex = styled('div', {
@@ -43,4 +53,10 @@ export const SearchButton = styled('button', {
   color: 'white',
   fontSize: '1.05em',
   boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+})
+
+export const Image = styled('img', {})
+
+export const Text = styled('p', {
+  fontSize: '48px',
 })

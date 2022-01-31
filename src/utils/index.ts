@@ -12,7 +12,7 @@ export const client: Client = async (
         'Content-Type': payload ? 'application/json' : '',
         ...headers,
       },
-      body: JSON.stringify(payload ?? {}),
+      body: payload ? JSON.stringify(payload) : undefined,
     })
   ).json()
 }
@@ -31,13 +31,13 @@ export const getGeoLocation: () => Coords = () => {
 }
 
 export const weatherMap = {
-  sl: {name: 'Sleet', src: ''},
-  sn: {name: 'Snow', src: ''},
-  h: {name: 'Hail', src: ''},
-  t: {name: 'ThunderStorm', src: ''},
-  hr: {name: 'Heavy Rain', src: ''},
-  lr: {name: 'Light Rain', src: ''},
-  s: {name: 'Shower', src: ''},
-  hc: {name: 'Heavy Cloud', src: ''},
-  lc: {name: 'Light Cloud', src: ''},
+  sl: {name: 'Sleet', src: '../../assets/sleet.png'},
+  sn: {name: 'Snow', src: '../../assets/snow.png'},
+  h: {name: 'Hail', src: '../../assets/hail.png'},
+  t: {name: 'ThunderStorm', src: '../../assets/thunder.png'},
+  hr: {name: 'Heavy Rain', src: '../../assets/heavy-rain.png'},
+  lr: {name: 'Light Rain', src: '../../assets/light-rain.png'},
+  s: {name: 'Shower', src: '../../assets/shower.png'},
+  hc: {name: 'Heavy Cloud', src: '../../assets/heavy-cloud.png'},
+  lc: {name: 'Light Cloud', src: '../../assets/light-cloud.png'},
 }

@@ -15,3 +15,5 @@ export type Client = (
 ) => Promise<any[]>
 
 export type Scale = 'c' | 'f'
+
+export type AbbrTypes = 'sl' | 'sn' | 'h' | 'lc' | 'hc' | 'lr' | 'hr' | 't'
